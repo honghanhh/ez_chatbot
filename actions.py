@@ -11,17 +11,49 @@ from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.forms import FormAction
 
 
-class ActionHelloWorld(Action):
+# class ActionHelloWorld(Action):
 
+#     def name(self) -> Text:
+#         return "action_hello_world"
+
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+#         dispatcher.utter_message(text="Hello World!")
+
+#         return []
+
+
+class ClientForm(FormAction):
     def name(self) -> Text:
-        return "action_hello_world"
+        return "client_form"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    @staticmethod
+    def required_slot(tracker: Tracker) -> List[Text]:
+        print("require_slots(tracker: Tracker)")
+        return ["ten", "tuoi"]
 
-        dispatcher.utter_message(text="Hello World!")
+    def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict[Text, Any]]]]:
+        """
+        A dictionary to map required slots to
+        - an extracted entity
+        - intent: value pairs
+        - a whole message
+        or a list of them, where a first match will be picked
+        """
+        print("slot_mappings(self) ")
+        return {
+            "ten": [self.from_entity(entity="ten", intent="ten"), ], }
+
+    def submit(self, dispatcher: CollectingDispatcher,
+               tracker: Tracker,
+               domain: Dict[Text, Any],
+               ) -> List[Dict]:
+
+        dispatcher.utter_message(template="utter_cam_on")
 
         return []

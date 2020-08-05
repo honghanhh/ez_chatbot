@@ -1,32 +1,63 @@
-intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-
-responses:
-  utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+intents:
+- chao
+- tam_biet
+- inform
+- choose
+- ten
+- tuoi
+- utter_cam_on
+- utter_hoi_loai
+- utter_chao
+- client_form
+- form
+entities:
+- tuoi
+- ten
+- name
+slots:
+  ten:
+    type: unfeaturized
+  tuoi:
+    type: unfeaturized
+responses:
+  utter_chao:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: Chào mừng bạn đến với Chatbot của Nâu Quạu.
+  utter_hoi_ten:
+  - text: Bạn tên là gì?
+  utter_hoi_tuoi:
+  - text: Bạn bao nhiêu tuổi?
+  utter_tam_biet:
+  - text: Bye
+  - text: Tạm biệt
+  - text: Chào bạn, Hẹn gặp lại!
+  utter_cam_on:
+  - text: 'Cảm ơn bạn đã trả lời mình. Mình confirm lại: \n - Tên: {ten} \n - Tuổi:
+      {tuoi} \n Nhưng mình không rảnh đâu nên xàm xí sau nhé.\n Byeeee =))'
+  utter_cf_ten:
+  - text: Ồ. Đây là 1 cái tên hay.
+  utter_cf_tuoi:
+  - text: Đằng ấy trẻ ha!
+  utter_hoi_loai:
+  - buttons:
+    - payload: '/choose{"loai": "Loai 1"}'
+      title: Loai 1
+    - payload: '/choose{"loai": "Loai 2"}'
+      title: Loai 2
+    text: Bạn muốn chọn loại nào?
+actions:
+- utter_chao
+- utter_tam_biet
+- utter_cam_on
+- utter_cf_ten
+- utter_cf_tuoi
+- utter_hoi_ten
+- utter_hoi_tuoi
+- utter_hoi_loai
+- choose
+- chao
+forms:
+- client_form
