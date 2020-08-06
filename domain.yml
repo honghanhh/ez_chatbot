@@ -35,8 +35,8 @@ responses:
   - text: Tạm biệt
   - text: Chào bạn, Hẹn gặp lại!
   utter_cam_on:
-  - text: 'Cảm ơn bạn đã trả lời mình. Mình confirm lại: \n - Tên: {ten} \n - Tuổi:
-      {tuoi} \n Nhưng mình không rảnh đâu nên xàm xí sau nhé.\n Byeeee =))'
+  - text: Cảm ơn bạn đã trả lời mình.Nhưng mình không rảnh đâu nên xàm xí sau nhé.
+      Byeeee =))
   utter_cf_ten:
   - text: Ồ. Đây là 1 cái tên hay.
   utter_cf_tuoi:

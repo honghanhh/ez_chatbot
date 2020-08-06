@@ -5,6 +5,7 @@
 - Chào bạn
 - Xin chao
 - xin chao
+- Xin chaof
 
 ## intent:tam_biet
 - Tạm biệt
