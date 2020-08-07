@@ -4,19 +4,15 @@ session_config:
 intents:
 - chao
 - tam_biet
-- inform
 - choose
 - ten
 - tuoi
-- utter_cam_on
-- utter_hoi_loai
-- utter_chao
-- client_form
-- form
+- loai_2
+- loai_1
 entities:
 - tuoi
 - ten
-- name
+- loai
 slots:
   ten:
     type: unfeaturized
@@ -29,7 +25,7 @@ responses:
   utter_hoi_ten:
   - text: Bạn tên là gì?
   utter_hoi_tuoi:
-  - text: Bạn bao nhiêu tuổi?
+  - text: Bạn {ten} bao nhiêu tuổi?
   utter_tam_biet:
   - text: Bye
   - text: Tạm biệt
@@ -38,14 +34,14 @@ responses:
   - text: Cảm ơn bạn đã trả lời mình.Nhưng mình không rảnh đâu nên xàm xí sau nhé.
       Byeeee =))
   utter_cf_ten:
-  - text: Ồ. Đây là 1 cái tên hay.
+  - text: Ồ.  {ten} là 1 cái tên hay.
   utter_cf_tuoi:
-  - text: Đằng ấy trẻ ha!
+  - text: '{tuoi} tuổi á. Đằng ấy trẻ ha!'
   utter_hoi_loai:
   - buttons:
-    - payload: '/choose{"loai": "Loai 1"}'
+    - payload: loai_1
       title: Loai 1
-    - payload: '/choose{"loai": "Loai 2"}'
+    - payload: loai_2
       title: Loai 2
     text: Bạn muốn chọn loại nào?
 actions:
@@ -57,7 +53,3 @@ actions:
 - utter_hoi_ten
 - utter_hoi_tuoi
 - utter_hoi_loai
-- choose
-- chao
-forms:
-- client_form
