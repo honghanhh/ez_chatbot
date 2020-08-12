@@ -36,4 +36,4 @@ rasa test
 
 - Interactive learning Interface: 
 ![interface](./images/rasa.png)
-
+![interface](./images/rasa1.png)
