@@ -1,4 +1,4 @@
-## **EZ_Chatbot**
+## **Ez Chatbot**
 
 This repository helps new learners to build an ez FAQ chatbot on **Ubuntu 16.04** using [**RASA**](https://rasa.com/) framework. Please check out installation on other operation systems, updates, tutorials, and tricks of RASA from [**here**](https://rasa.com/docs/rasa/).
 
